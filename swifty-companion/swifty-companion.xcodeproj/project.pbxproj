@@ -86,7 +86,6 @@
 				4A12BC5342D1A5277F1B1886 /* Pods-swifty-companion.debug.xcconfig */,
 				323122F46024DA2F2177633A /* Pods-swifty-companion.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

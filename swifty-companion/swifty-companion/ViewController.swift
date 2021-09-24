@@ -11,17 +11,31 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var LoginText: UITextField!
+    
     @IBOutlet weak var Searchbtn: UIButton!
+    @IBOutlet weak var LoginText: UITextField!
     var userInfos: JSON?
     let Api = API(Url: "https://api.intra.42.fr/oauth/token")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Api.getToken()
-        // Do any additional setup after loading the view.
     }
- 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
   
     @IBAction func loginCheck(_ sender: UITextField) {
         if sender.text != ""
@@ -41,7 +55,7 @@ class ViewController: UIViewController {
             completion in
                 if completion != nil {
                     self.userInfos = completion
-                    self.performSegue(withIdentifier: "Profile", sender: nil)
+                    self.performSegue(withIdentifier: "Profile", sender: self)
                     self.Searchbtn.isEnabled = true
                 } else {
                    print("khrya")
@@ -49,6 +63,9 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

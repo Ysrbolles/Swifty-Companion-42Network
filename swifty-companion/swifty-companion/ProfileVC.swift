@@ -42,12 +42,21 @@ class ProfileVC: UIViewController {
         progressBar.clipsToBounds = true
         progressBar.layer.sublayers![1].cornerRadius = progressBar.frame.height / 2
         progressBar.subviews[1].clipsToBounds = true
-        if userInfosData != nil {
+       
         printData()
-        }
+        
     }
 
     func printData(){
+        if userInfosData != nil {
+        let strUrl = userInfosData!["image_url"].string
+        if let url = URL(string: strUrl!) {
+                  
+               
+        if let data = NSData(contentsOf: url) {
+                       userAvatar.image = UIImage(data: data as Data)
+                   }
+        }
         if let value = userInfosData!["displayname"].string {
                   FullName.text = value
         }
@@ -63,10 +72,10 @@ class ProfileVC: UIViewController {
         }
         
         if let value = userInfosData!["wallet"].int {
-            wallet.text = "\(wallet.text!) \(value)"
+            wallet.text = "Wallet: \(value)₳"
         }
         if let value = userInfosData!["correction_point"].int {
-            crrection.text = "\(crrection.text!) \(value)"
+            crrection.text = "Correction: \(value)"
         }
         if let value = userInfosData!["cursus_users"][2]["grade"].string {
             grade.text = "Grade: \(value)"
@@ -78,7 +87,12 @@ class ProfileVC: UIViewController {
             level.text = "Level: \(Int(value)) - \(Int(modf(value).1 * 100))%"
             progressBar.progress = modf(value).1
         }
+        }
         
     }
+    override func didReceiveMemoryWarning() {
+           super.didReceiveMemoryWarning()
+           // Dispose of any resources that can be recreated.
+       }
 }
 
