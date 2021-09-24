@@ -44,11 +44,12 @@ class ProfileVC: UIViewController {
         progressBar.subviews[1].clipsToBounds = true
        
         printData()
-        
+      
+        print(userInfosData!["cursus_users"].count as Any)
     }
 
     func printData(){
-        if userInfosData != nil {
+     
         let strUrl = userInfosData!["image_url"].string
         if let url = URL(string: strUrl!) {
                   
@@ -77,17 +78,30 @@ class ProfileVC: UIViewController {
         if let value = userInfosData!["correction_point"].int {
             crrection.text = "Correction: \(value)"
         }
-        if let value = userInfosData!["cursus_users"][2]["grade"].string {
-            grade.text = "Grade: \(value)"
+        if userInfosData!["cursus_users"].count > 2 {
+            if let value = userInfosData!["cursus_users"][2]["grade"].string {
+                grade.text = "Grade: \(value)"
+            }
+            if let value = userInfosData!["cursus_users"][2]["cursus"]["name"].string {
+                cursus.text = "Cursus: \(value)"
+            }
+            if let value = userInfosData!["cursus_users"][2]["level"].float {
+                level.text = "Level: \(Int(value)) - \(Int(modf(value).1 * 100))%"
+                progressBar.progress = modf(value).1
+            }
+        } else {
+            if let value = userInfosData!["cursus_users"][0]["grade"].string {
+                grade.text = "Grade: \(value)"
+            }
+            if let value = userInfosData!["cursus_users"][0]["cursus"]["name"].string {
+                cursus.text = "Cursus: \(value)"
+            }
+            if let value = userInfosData!["cursus_users"][0]["level"].float {
+                level.text = "Level: \(Int(value)) - \(Int(modf(value).1 * 100))%"
+                progressBar.progress = modf(value).1
+            }
         }
-        if let value = userInfosData!["cursus_users"].string {
-            cursus.text = "cursus: \(value)"
-        }
-        if let value = userInfosData!["cursus_users"][2]["level"].float {
-            level.text = "Level: \(Int(value)) - \(Int(modf(value).1 * 100))%"
-            progressBar.progress = modf(value).1
-        }
-        }
+        
         
     }
     override func didReceiveMemoryWarning() {

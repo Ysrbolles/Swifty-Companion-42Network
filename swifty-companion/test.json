@@ -1,0 +1,243 @@
+[
+	{
+		"cursus": {
+			"created_at": "2014-11-02T16:43:38.480Z",
+			"id": 1,
+			"slug": "42",
+			"name": "42"
+		},
+		"end_at": "2020-11-27T00:00:00.000Z",
+		"has_coalition": true,
+		"user": {
+			"updated_at": "2021-09-24T14:40:07.622Z",
+			"created_at": "2018-08-13T08:36:20.575Z",
+			"id": 42204,
+			"url": "https:\/\/api.intra.42.fr\/v2\/users\/ybolles",
+			"login": "ybolles"
+		},
+		"id": 49931,
+		"level": 12.58,
+		"blackholed_at": null,
+		"skills": [
+			{
+				"id": 16,
+				"level": 11.26,
+				"name": "Company experience"
+			},
+			{
+				"id": 7,
+				"level": 8.7100000000000009,
+				"name": "Group & interpersonal"
+			},
+			{
+				"id": 6,
+				"level": 8.2599999999999998,
+				"name": "Web"
+			},
+			{
+				"id": 1,
+				"level": 5.1200000000000001,
+				"name": "Algorithms & AI"
+			},
+			{
+				"id": 12,
+				"level": 4.8700000000000001,
+				"name": "DB & Data"
+			},
+			{
+				"id": 4,
+				"level": 3.75,
+				"name": "Unix"
+			},
+			{
+				"id": 2,
+				"level": 3.73,
+				"name": "Imperative programming"
+			},
+			{
+				"id": 3,
+				"level": 3.6000000000000001,
+				"name": "Rigor"
+			},
+			{
+				"id": 10,
+				"level": 2.8999999999999999,
+				"name": "Network & system administration"
+			},
+			{
+				"level": 1.6099999999999999,
+				"id": 15,
+				"name": "Technology integration"
+			},
+			{
+				"level": 1.24,
+				"id": 5,
+				"name": "Graphics"
+			},
+			{
+				"level": 1.1699999999999999,
+				"id": 11,
+				"name": "Security"
+			},
+			{
+				"level": 0.70999999999999996,
+				"id": 17,
+				"name": "Object-oriented programming"
+			},
+			{
+				"level": 0.050000000000000003,
+				"id": 14,
+				"name": "Adaptation & creativity"
+			}
+		],
+		"created_at": "2018-10-01T18:30:02.427Z",
+		"updated_at": "2020-11-28T01:36:42.412Z",
+		"begin_at": "2018-10-02T22:00:00.000Z",
+		"grade": "Commander",
+		"cursus_id": 1
+	},
+	{
+		"id": 44288,
+		"blackholed_at": null,
+		"has_coalition": true,
+		"skills": [
+			{
+				"level": 5.9900000000000002,
+				"id": 1,
+				"name": "Algorithms & AI"
+			},
+			{
+				"level": 5.4199999999999999,
+				"id": 4,
+				"name": "Unix"
+			},
+			{
+				"level": 5.1500000000000004,
+				"id": 3,
+				"name": "Rigor"
+			},
+			{
+				"level": 0.34000000000000002,
+				"id": 7,
+				"name": "Group & interpersonal"
+			}
+		],
+		"cursus_id": 6,
+		"created_at": "2018-08-13T08:36:20.829Z",
+		"cursus": {
+			"slug": "piscine-c-decloisonnee",
+			"name": "Piscine C décloisonnée",
+			"created_at": "2015-09-21T12:36:09.128Z",
+			"id": 6
+		},
+		"updated_at": "2018-08-13T08:36:20.829Z",
+		"level": 5.5800000000000001,
+		"grade": null,
+		"begin_at": "2018-08-27T07:37:00.000Z",
+		"end_at": "2018-09-22T07:37:00.000Z",
+		"user": {
+			"login": "ybolles",
+			"url": "https:\/\/api.intra.42.fr\/v2\/users\/ybolles",
+			"created_at": "2018-08-13T08:36:20.575Z",
+			"updated_at": "2021-09-24T14:40:07.622Z",
+			"id": 42204
+		}
+	},
+	{
+		"id": 107660,
+		"blackholed_at": "2020-04-14T22:00:00.000Z",
+		"has_coalition": true,
+		"skills": [
+			{
+				"level": 11.26,
+				"id": 16,
+				"name": "Company experience"
+			},
+			{
+				"level": 7.6500000000000004,
+				"id": 7,
+				"name": "Group & interpersonal"
+			},
+			{
+				"level": 7.5499999999999998,
+				"id": 6,
+				"name": "Web"
+			},
+			{
+				"level": 6.2800000000000002,
+				"id": 11,
+				"name": "Security"
+			},
+			{
+				"level": 5.5800000000000001,
+				"id": 4,
+				"name": "Unix"
+			},
+			{
+				"level": 5.2599999999999998,
+				"id": 1,
+				"name": "Algorithms & AI"
+			},
+			{
+				"level": 5.04,
+				"id": 12,
+				"name": "DB & Data"
+			},
+			{
+				"level": 4.7300000000000004,
+				"id": 2,
+				"name": "Imperative programming"
+			},
+			{
+				"level": 4.5800000000000001,
+				"id": 10,
+				"name": "Network & system administration"
+			},
+			{
+				"level": 4.5199999999999996,
+				"id": 14,
+				"name": "Adaptation & creativity"
+			},
+			{
+				"level": 4.4900000000000002,
+				"id": 3,
+				"name": "Rigor"
+			},
+			{
+				"level": 3.3599999999999999,
+				"id": 15,
+				"name": "Technology integration"
+			},
+			{
+				"level": 3.02,
+				"id": 5,
+				"name": "Graphics"
+			},
+			{
+				"level": 2.2200000000000002,
+				"id": 17,
+				"name": "Object-oriented programming"
+			}
+		],
+		"cursus_id": 21,
+		"created_at": "2020-11-28T01:36:24.608Z",
+		"cursus": {
+			"slug": "42cursus",
+			"id": 21,
+			"name": "42cursus",
+			"created_at": "2019-07-29T08:45:17.896Z"
+		},
+		"updated_at": "2020-11-28T01:36:24.608Z",
+		"level": 14,
+		"grade": "Member",
+		"begin_at": "2018-10-02T22:00:00.000Z",
+		"end_at": null,
+		"user": {
+			"url": "https:\/\/api.intra.42.fr\/v2\/users\/ybolles",
+			"login": "ybolles",
+			"updated_at": "2021-09-24T14:40:07.622Z",
+			"id": 42204,
+			"created_at": "2018-08-13T08:36:20.575Z"
+		}
+	}
+]
