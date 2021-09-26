@@ -14,6 +14,7 @@
 		B92F573726F8B0E4000A8F92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92F573526F8B0E4000A8F92 /* Main.storyboard */; };
 		B92F573926F8B0E6000A8F92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92F573826F8B0E6000A8F92 /* Assets.xcassets */; };
 		B92F573C26F8B0E6000A8F92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92F573A26F8B0E6000A8F92 /* LaunchScreen.storyboard */; };
+		B95BB7C62700E23D001303E8 /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95BB7C52700E23D001303E8 /* ProfileTVC.swift */; };
 		B99A55E826F90A6500C2F70A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A55E726F90A6500C2F70A /* ProfileVC.swift */; };
 		B9E43B7626FA211A0070A8E5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E43B7526FA211A0070A8E5 /* API.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		B92F573826F8B0E6000A8F92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B92F573B26F8B0E6000A8F92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B92F573D26F8B0E6000A8F92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B95BB7C52700E23D001303E8 /* ProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
 		B99A55E726F90A6500C2F70A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B9E43B7526FA211A0070A8E5 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D3288ACE7CD2690D4F687633 /* Pods_swifty_companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swifty_companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,7 @@
 				B92F573826F8B0E6000A8F92 /* Assets.xcassets */,
 				B92F573A26F8B0E6000A8F92 /* LaunchScreen.storyboard */,
 				B92F573D26F8B0E6000A8F92 /* Info.plist */,
+				B95BB7C52700E23D001303E8 /* ProfileTVC.swift */,
 			);
 			path = "swifty-companion";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				B99A55E826F90A6500C2F70A /* ProfileVC.swift in Sources */,
 				B92F573426F8B0E4000A8F92 /* ViewController.swift in Sources */,
 				B92F573026F8B0E4000A8F92 /* AppDelegate.swift in Sources */,
+				B95BB7C62700E23D001303E8 /* ProfileTVC.swift in Sources */,
 				B92F573226F8B0E4000A8F92 /* SceneDelegate.swift in Sources */,
 				B9E43B7626FA211A0070A8E5 /* API.swift in Sources */,
 			);

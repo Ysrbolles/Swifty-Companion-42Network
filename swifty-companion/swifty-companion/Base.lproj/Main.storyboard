@@ -231,7 +231,7 @@
                                                     <constraint firstAttribute="height" constant="300" id="dfW-GZ-fPm"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="K9d-nP-qcj">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectTable" id="K9d-nP-qcj" customClass="ProfileTVC" customModule="swifty_companion" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K9d-nP-qcj" id="siQ-kA-X75">
@@ -239,26 +239,33 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjH-Xp-649">
-                                                                    <rect key="frame" x="29" y="11" width="45" height="21"/>
+                                                                    <rect key="frame" x="54.666666666666657" y="11" width="45" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m1-TD-vvG">
-                                                                    <rect key="frame" x="306" y="11" width="37" height="21"/>
+                                                                    <rect key="frame" x="331.66666666666669" y="11" width="37" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="power" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BRM-bF-e6G">
-                                                                    <rect key="frame" x="360" y="1" width="43" height="40"/>
+                                                                    <rect key="frame" x="385.66666666666669" y="1" width="19.333333333333314" height="40"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="BRM-bF-e6G" secondAttribute="trailing" constant="9" id="EsC-WG-ESt"/>
+                                                                <constraint firstItem="MjH-Xp-649" firstAttribute="leading" secondItem="siQ-kA-X75" secondAttribute="leadingMargin" constant="9" id="ILT-qk-X69"/>
                                                                 <constraint firstItem="2m1-TD-vvG" firstAttribute="leading" secondItem="MjH-Xp-649" secondAttribute="trailing" constant="232" id="Juj-Za-HdX"/>
                                                                 <constraint firstItem="BRM-bF-e6G" firstAttribute="leading" secondItem="2m1-TD-vvG" secondAttribute="trailing" constant="17" id="NEr-Gv-0do"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="grade" destination="2m1-TD-vvG" id="KRN-y8-umr"/>
+                                                            <outlet property="img" destination="BRM-bF-e6G" id="MRP-ue-xmO"/>
+                                                            <outlet property="name" destination="MjH-Xp-649" id="JkP-GL-FbY"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>

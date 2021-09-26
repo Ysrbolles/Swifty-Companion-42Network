@@ -42,10 +42,16 @@ class ProfileVC: UIViewController {
         progressBar.clipsToBounds = true
         progressBar.layer.sublayers![1].cornerRadius = progressBar.frame.height / 2
         progressBar.subviews[1].clipsToBounds = true
+        ProjectsTable.clipsToBounds = true
+        ProjectsTable.layer.cornerRadius = 5
+        SkillsTable.clipsToBounds = true
+        SkillsTable.layer.cornerRadius = 5
+        ProjectsTable.separatorStyle = .none
+        ProjectsTable.dataSource = self
        
         printData()
-      
-        print(userInfosData!["cursus_users"].count as Any)
+        print("******")
+        print(userInfosData!["projects_users"] as Any)
     }
 
     func printData(){
@@ -110,3 +116,20 @@ class ProfileVC: UIViewController {
        }
 }
 
+extension ProfileVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     
+            return userInfosData!["projects_users"].count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTable") as! ProfileTVC
+            let Projects = userInfosData!["projects_users"][indexPath.row]
+        cell.name.text = "salam"
+        cell.grade.text = "50"
+            return cell
+     
+    }
+}
