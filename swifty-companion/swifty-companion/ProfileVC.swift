@@ -48,6 +48,8 @@ class ProfileVC: UIViewController {
         SkillsTable.layer.cornerRadius = 5
         ProjectsTable.separatorStyle = .none
         ProjectsTable.dataSource = self
+        SkillsTable.separatorStyle = .none
+        SkillsTable.dataSource = self
        
         printData()
         print("******")
@@ -118,18 +120,48 @@ class ProfileVC: UIViewController {
 
 extension ProfileVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     
+        if tableView == ProjectsTable {
             return userInfosData!["projects_users"].count
+        }
+        else {
+            return userInfosData!["cursus_users"][0]["skills"].count
+        }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      
+            
+          if tableView == ProjectsTable  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTable") as! ProfileTVC
             let Projects = userInfosData!["projects_users"][indexPath.row]
-        cell.name.text = "salam"
-        cell.grade.text = "50"
+            let mark = Projects["final_mark"].int
+            let pStatus = Projects["validated?"].bool
+        
+            if mark != nil {
+                cell.name.text = (Projects["project"]["name"].string ?? "") + " - " + (mark?.description ?? "") + "%"
+            }
+            else {
+                cell.name.text = (Projects["project"]["name"].string ?? "") + " -  in progress"
+            }
+            switch pStatus {
+            case true:
+                cell.img.image = UIImage(named: "validation")
+            case false:
+                cell.img.image = UIImage(named: "fail")
+            default:
+                cell.img.image = UIImage(named: "in_progress")
+            }
+        
             return cell
-     
+          }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SkillTable") as! SkillsTVC
+            let skills = userInfosData!["cursus_users"][0]["skills"][indexPath.row]
+            let level = skills["level"].float
+            cell.name.text = (skills["name"].string ?? "") + " - level: " + (level?.description ?? "") + "%"
+//            cell.SkillProgress.progress = modf(level ?? "").1
+            return cell
+   
+        }
     }
 }

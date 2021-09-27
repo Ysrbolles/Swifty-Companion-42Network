@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         {
             Searchbtn.isEnabled = true
             Searchbtn.backgroundColor = UIColor.blue
+            
         }
         else
         {
@@ -57,6 +58,7 @@ class ViewController: UIViewController {
                     self.userInfos = completion
                     self.performSegue(withIdentifier: "Profile", sender: self)
                     self.Searchbtn.isEnabled = true
+                    self.LoginText.text = ""
                 } else {
                    print("khrya")
                   

@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileTVC: UITableViewCell {
-
+    
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var img: UIImageView!
@@ -18,10 +18,23 @@ class ProfileTVC: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+}
+
+
+class SkillsTVC: UITableViewCell {
+    
+    
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var SkillProgress: UIProgressView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        SkillProgress.transform = SkillProgress.transform.scaledBy(x: 1, y: 2)
+        SkillProgress.layer.cornerRadius = SkillProgress.frame.height / 2
+        SkillProgress.clipsToBounds = true
+        SkillProgress.layer.sublayers![1].cornerRadius = SkillProgress.frame.height / 2
+        SkillProgress.subviews[1].clipsToBounds = true
     }
 
 }
