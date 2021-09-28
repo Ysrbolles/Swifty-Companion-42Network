@@ -53,19 +53,22 @@ class ProfileVC: UIViewController {
        
         printData()
         print("******")
-        print(userInfosData!["projects_users"] as Any)
+        print(userInfosData as Any)
     }
 
     func printData(){
      
-        let strUrl = userInfosData!["image_url"].string
-        if let url = URL(string: strUrl!) {
+        guard let strUrl = userInfosData!["image_url"].string else { return }
+        if let url = URL(string: strUrl) {
                   
                
-        if let data = NSData(contentsOf: url) {
+                    if let data = NSData(contentsOf: url) {
                        userAvatar.image = UIImage(data: data as Data)
-                   }
+                       }
         }
+              
+
+
         if let value = userInfosData!["displayname"].string {
                   FullName.text = value
         }
@@ -159,7 +162,7 @@ extension ProfileVC: UITableViewDataSource {
             let skills = userInfosData!["cursus_users"][0]["skills"][indexPath.row]
             let level = skills["level"].float
             cell.name.text = (skills["name"].string ?? "") + " - level: " + (level?.description ?? "") + "%"
-//            cell.SkillProgress.progress = modf(level ?? "").1
+//            cell.SkillProgress.progress = modf(level.description).1
             return cell
    
         }

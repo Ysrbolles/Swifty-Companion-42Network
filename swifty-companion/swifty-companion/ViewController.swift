@@ -51,19 +51,32 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func Search(_ sender: Any) {
-        if let login = LoginText.text?.replacingOccurrences(of: " ", with: "", options: .literal, range: nil) {
-        Api.getUser(login: login) {
+        let Login = LoginText.text?.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
+        if  Login != "" {
+            Api.getUser(login: Login!) {
             completion in
-                if completion != nil {
+            if completion != nil && completion!.count > 0{
                     self.userInfos = completion
                     self.performSegue(withIdentifier: "Profile", sender: self)
-                    self.Searchbtn.isEnabled = true
+                self.Searchbtn.isEnabled = true
                     self.LoginText.text = ""
                 } else {
-                   print("khrya")
+                    let alert = UIAlertController(title: "Error", message: "This login doesn't exists", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                   self.present(alert, animated: true, completion: nil)
+                  self.Searchbtn.isEnabled = true
+                   self.LoginText.text = nil
                   
                 }
             }
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "Login should not be empty", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+           self.present(alert, animated: true, completion: nil)
+          self.Searchbtn.isEnabled = true
+           self.LoginText.text = nil
+          
         }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
