@@ -27,14 +27,12 @@ class API {
         request.httpMethod = "GET"
         request.setValue(bearer, forHTTPHeaderField: "Authorization")
         AF.request(request as URLRequestConvertible).validate().responseJSON {
-            response in
-            switch response.result {
-            case .success:
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    print("The token will expire in:", json["expires_in_seconds"], "seconds.")
-                }
-            case .failure:
+            response
+            in switch response.result {
+            case .success(let response):
+                let json = JSON(response)
+                print("The token will expire in:", json["expires_in_seconds"], "seconds.")
+            case .failure( _):
                 print("Error: Trying to get a new token...")
                 UserDefaults.standard.removeObject(forKey: "token")
                 self.getToken()

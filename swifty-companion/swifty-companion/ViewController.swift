@@ -58,14 +58,14 @@ class ViewController: UIViewController {
             if completion != nil && completion!.count > 0{
                     self.userInfos = completion
                     self.performSegue(withIdentifier: "Profile", sender: self)
-                self.Searchbtn.isEnabled = true
+                    self.Searchbtn.isEnabled = true
                     self.LoginText.text = ""
                 } else {
                     let alert = UIAlertController(title: "Error", message: "This login doesn't exists", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                   self.present(alert, animated: true, completion: nil)
-                  self.Searchbtn.isEnabled = true
-                   self.LoginText.text = nil
+                    self.present(alert, animated: true, completion: nil)
+                    self.Searchbtn.isEnabled = true
+                    self.LoginText.text = nil
                   
                 }
             }
@@ -73,9 +73,9 @@ class ViewController: UIViewController {
         else {
             let alert = UIAlertController(title: "Error", message: "Login should not be empty", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-           self.present(alert, animated: true, completion: nil)
-          self.Searchbtn.isEnabled = true
-           self.LoginText.text = nil
+            self.present(alert, animated: true, completion: nil)
+            self.Searchbtn.isEnabled = true
+            self.LoginText.text = nil
           
         }
     }
