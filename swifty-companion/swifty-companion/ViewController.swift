@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         if sender.text != ""
                          {
                              Searchbtn.isEnabled = true
-                             Searchbtn.backgroundColor = UIColor.blue
+                            Searchbtn.backgroundColor = UIColor.systemBlue
                                      
                          }
                          else

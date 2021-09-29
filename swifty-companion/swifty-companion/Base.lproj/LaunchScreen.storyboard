@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Some-acrylic-paint-poured-through-a-funnel--iphone-x-wallpaper-ilikewallpaper_com" translatesAutoresizingMaskIntoConstraints="NO" id="oQt-oh-CP8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wp2430266" translatesAutoresizingMaskIntoConstraints="NO" id="oQt-oh-CP8">
                                 <rect key="frame" x="0.0" y="-8" width="414" height="923"/>
                             </imageView>
                         </subviews>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Some-acrylic-paint-poured-through-a-funnel--iphone-x-wallpaper-ilikewallpaper_com" width="1125" height="2436"/>
+        <image name="wp2430266" width="2160" height="3840"/>
     </resources>
 </document>
