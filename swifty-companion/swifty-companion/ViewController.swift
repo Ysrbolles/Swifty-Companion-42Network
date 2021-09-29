@@ -12,6 +12,7 @@ import SwiftyJSON
 class ViewController: UIViewController {
 
     
+
     @IBOutlet weak var Searchbtn: UIButton!
     @IBOutlet weak var LoginText: UITextField!
     var userInfos: JSON?
@@ -39,45 +40,51 @@ class ViewController: UIViewController {
   
     @IBAction func loginCheck(_ sender: UITextField) {
         if sender.text != ""
-        {
-            Searchbtn.isEnabled = true
-            Searchbtn.backgroundColor = UIColor.blue
-            
-        }
-        else
-        {
-            Searchbtn.isEnabled = false
-            Searchbtn.backgroundColor = UIColor.gray
-        }
+                         {
+                             Searchbtn.isEnabled = true
+                             Searchbtn.backgroundColor = UIColor.blue
+                                     
+                         }
+                         else
+                         {
+                             Searchbtn.isEnabled = false
+                             Searchbtn.backgroundColor = UIColor.gray
+                         }
     }
+    
     @IBAction func Search(_ sender: Any) {
         let Login = LoginText.text?.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
-        if  Login != "" {
-            Api.getUser(login: Login!) {
-            completion in
-            if completion != nil && completion!.count > 0{
-                    self.userInfos = completion
-                    self.performSegue(withIdentifier: "Profile", sender: self)
-                    self.Searchbtn.isEnabled = true
-                    self.LoginText.text = ""
-                } else {
-                    let alert = UIAlertController(title: "Error", message: "This login doesn't exists", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    self.Searchbtn.isEnabled = true
-                    self.LoginText.text = nil
-                  
-                }
-            }
-        }
-        else {
-            let alert = UIAlertController(title: "Error", message: "Login should not be empty", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            self.Searchbtn.isEnabled = true
-            self.LoginText.text = nil
-          
-        }
+                        if  Login != "" {
+                            let loaderAlert = self.loader()
+                           Api.getUser(login: Login!) {
+                            completion in
+                            if completion != nil && completion!.count > 0{
+                                    self.userInfos = completion
+                                    self.StopLoader(load: loaderAlert)
+                                    self.performSegue(withIdentifier: "Profile", sender: self)
+                                    self.Searchbtn.isEnabled = true
+                                    self.LoginText.text = ""
+                                } else {
+                               
+                               loaderAlert.dismiss(animated: true){
+                                        let alert = UIAlertController(title: "Error", message: "This login doesn't exists", preferredStyle: UIAlertController.Style.alert)
+                                                                  alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                                                                  self.present(alert, animated: true, completion: nil)
+                                                                  self.Searchbtn.isEnabled = true
+                                                                  self.LoginText.text = nil
+                               }
+                                 
+                                }
+                            }
+                        }
+                        else {
+                            let alert = UIAlertController(title: "Error", message: "Login should not be empty", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                            self.Searchbtn.isEnabled = true
+                            self.LoginText.text = nil
+                          
+                        }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -89,5 +96,23 @@ class ViewController: UIViewController {
                     ProfileVC.userInfosData = self.userInfos
         }
     }
-
+    
+    
+    //Loader for data
+    func loader() -> UIAlertController {
+        let alert = UIAlertController(title: nil, message: "Pleas Wait", preferredStyle: .alert)
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        indicator.hidesWhenStopped = true
+        indicator.style = UIActivityIndicatorView.Style.large
+        indicator.startAnimating()
+        alert.view.addSubview(indicator)
+        present(alert, animated: true, completion: nil)
+        return alert
+    }
+    
+    func StopLoader(load: UIAlertController){
+        DispatchQueue.main.async {
+            load.dismiss(animated: true, completion: nil)
+        }
+    }
 }

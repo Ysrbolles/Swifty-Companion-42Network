@@ -32,7 +32,7 @@ class API {
             case .success(let response):
                 let json = JSON(response)
                 print("The token will expire in:", json["expires_in_seconds"], "seconds.")
-            case .failure( _):
+            case .failure(let error):
                 print("Error: Trying to get a new token...")
                 UserDefaults.standard.removeObject(forKey: "token")
                 self.getToken()
@@ -45,20 +45,18 @@ class API {
             AF.request(Url, method: .post, parameters: config).responseJSON {
                      response
                      in switch response.result {
-                                 case .success(let JSON):
-                                     let response = JSON as! NSDictionary
-                                     self.token = response.object(forKey: "access_token") as! String
-                                     UserDefaults.standard.set(self.token, forKey: "token")
-
-                                 case .failure(let error):
-                                     print("Request failed with error: \(error)")
-                                 }
-    
+                     case .success(let JSON):
+                        let response = JSON as! NSDictionary
+                        self.token = response.object(forKey: "access_token") as! String
+                        UserDefaults.standard.set(self.token, forKey: "token")
+                        self.checkToken()
+                    case .failure(let error):
+                        print("Request failed with error: \(error)")
+                    }
                  }
         } else {
             checkToken()
         }
-     
     }
     func getUser(login username:String, completion: @escaping (JSON?) -> Void){
         let url = URL(string: "https://api.intra.42.fr/v2/users/" + username)

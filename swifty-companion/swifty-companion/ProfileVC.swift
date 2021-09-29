@@ -29,8 +29,6 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        // Do any additional setup after loading the view.
         userAvatar.layer.cornerRadius = userAvatar.frame.size.width / 2
         userAvatar.clipsToBounds = true
         userAvatar.layer.borderWidth = 2
@@ -52,8 +50,7 @@ class ProfileVC: UIViewController {
         SkillsTable.dataSource = self
        
         printData()
-        print("******")
-        print(userInfosData as Any)
+
     }
 
     func printData(){
@@ -160,9 +157,9 @@ extension ProfileVC: UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SkillTable") as! SkillsTVC
             let skills = userInfosData!["cursus_users"][0]["skills"][indexPath.row]
-            let level = skills["level"].float
+            let level = userInfosData!["cursus_users"][0]["skills"][indexPath.row]["level"].float
             cell.name.text = (skills["name"].string ?? "") + " - level: " + (level?.description ?? "") + "%"
-//            cell.SkillProgress.progress = modf(level.description).1
+            cell.SkillProgress.progress = modf(level!).1
             return cell
    
         }
